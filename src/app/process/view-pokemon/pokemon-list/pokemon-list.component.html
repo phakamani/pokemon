@@ -1,6 +1,17 @@
-<app-card *ngFor="let pokemon of pokemonList" [data]= "{
-  imageUrl: pokemon.imageUrl,
-  title: pokemon.name
-}"></app-card>
+<div *ngFor="let pokemonItem of pokemonList">
+  <card
+    (cardButtonClick)="onCardButtonClick($event)"
+    [data]= "{
+      imageUrl: pokemonItem.imageUrl,
+      title: pokemonItem.name,
+      buttons: [{
+        type: 'text',
+        subType: '',
+        text: pokemonItem.name,
+        name: pokemonItem.name
+
+      }]
+    }"></card>
+</div>
 
 

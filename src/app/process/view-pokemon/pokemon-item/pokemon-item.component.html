@@ -1,1 +1,29 @@
-<p>pokemon-item works!</p>
+<h2 mat-dialog-title>Install Angular</h2>
+<div mat-dialog-content class="mat-typography">
+  <img src="{{data.imageUrl}}" alt="{{data.name}}"/>
+  <div>
+    <div>name = {{data.name}}</div>
+    <div>type = {{data.type}}</div>
+    <div>height = {{data.height}}</div>
+    <div>weight = {{data.weight}}</div>
+    <div>number of battles = {{data.numberOfBattles}}</div>
+  </div>
+</div>
+<mat-dialog-actions align="end">
+  <form-button [data] = "{
+    type: 'text',
+    subType: 'dialogClose',
+    text: 'Cancel',
+    name: 'Cancel'
+
+  }">
+  </form-button>
+  <form-button [data] = "{
+    type: 'text',
+    subType: 'dialogCloseFocus',
+    text: 'Close',
+    name: 'Close'
+  }">
+  </form-button>
+</mat-dialog-actions>
+

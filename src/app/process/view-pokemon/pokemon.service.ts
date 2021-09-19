@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { Pokemon } from 'src/app/model/Pokemon-model';
 
 
 @Injectable({
@@ -14,7 +15,7 @@ export class PokemonService {
   ) { }
 
   getPokemonList(): Observable<any> {
-    const requestUrl = 'https://pokeapi.co/api/v2/pokemon?limit=100';
+    const requestUrl = 'https://pokeapi.co/api/v2/pokemon?limit=2';
     return this.http.get(requestUrl).pipe(
       map((res) => {
         return res;
@@ -23,10 +24,23 @@ export class PokemonService {
   }
 
 
-  getPokemon(pokemonUrl: string): Observable<any> {
+  getPokemon(pokemonUrl: string): Observable<Pokemon> {
     return this.http.get(pokemonUrl).pipe(
-      map((res) => {
-        return res;
+      map((data) => {
+
+        const height = Number(data['height'])/10;
+        const weight = Number(data['weight'])/10;
+        const numberOfBattles = data['game_indices'].length.toString();
+        const pokemon = {
+          name: data['name'],
+          imageUrl: data['sprites']["front_default"],
+          type: data['types'][0].type.name,
+          height: `${height}m`,
+          weight: `${weight}kg`,
+          numberOfBattles,
+        }
+
+        return pokemon;
     }),
     catchError(this.handleError));
   }

@@ -1,0 +1,13 @@
+<button *ngIf="data.subType.indexOf('dialogClose') === -1" (click)="onButtonClick($event, data)"
+  type="data.type"
+  [ngClass]="{
+    'water': data.subType === 'water',
+    'fire': data.subType === 'fire',
+    'air': data.subType === 'air'
+  }">
+  {{data.text}}
+</button>
+
+<button *ngIf="data.subType === 'dialogClose'" mat-button mat-dialog-close>{{data.text}}</button>
+<button *ngIf="data.subType === 'dialogCloseFocus'" mat-button [mat-dialog-close]="true" cdkFocusInitial>{{data.text}}</button>
+
