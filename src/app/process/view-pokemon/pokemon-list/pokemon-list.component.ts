@@ -21,14 +21,7 @@ export class PokemonListComponent implements OnInit {
 
   ngOnInit(): void {
     this.pokemonService.getPokemonList().subscribe(res => {
-      res.results.forEach((pokemon) => {
-        const id = pokemon.url.replace('https://pokeapi.co/api/v2/pokemon/','').replace('/', '');
-        this.pokemonList.push({
-          name: pokemon.name,
-          imageUrl: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`,
-        })
-
-      })
+      this.pokemonList = res;
     }, error => {
       console.error(error)
     })

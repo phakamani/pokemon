@@ -15,7 +15,7 @@ export class PokemonService {
   ) { }
 
   getPokemonList(): Observable<any> {
-    const requestUrl = 'https://pokeapi.co/api/v2/pokemon?limit=2';
+    const requestUrl = 'http://localhost:8080/api/pokemon';
     return this.http.get(requestUrl).pipe(
       map((res) => {
         return res;
@@ -33,7 +33,7 @@ export class PokemonService {
         const numberOfBattles = data['game_indices'].length.toString();
         const pokemon = {
           name: data['name'],
-          imageUrl: data['sprites']["front_default"],
+          url: data['sprites']["front_default"],
           type: data['types'][0].type.name,
           height: `${height}m`,
           weight: `${weight}kg`,

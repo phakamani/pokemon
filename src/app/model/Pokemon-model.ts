@@ -1,6 +1,6 @@
 export class Pokemon {
   constructor(
-    public imageUrl?: string,
+    public url?: string,
     public name?: string,
     public type?: string,
     public height?: string,
