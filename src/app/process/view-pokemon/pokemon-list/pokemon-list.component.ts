@@ -28,8 +28,9 @@ export class PokemonListComponent implements OnInit {
   }
 
   getPokemon(name: string) {
-    this.pokemonService.getPokemon(`https://pokeapi.co/api/v2/pokemon/${name}`).subscribe(data => {
+    this.pokemonService.getPokemon(name).subscribe(data => {
       this.pokemon = data;
+      console.log('==========data=======', data);
       this.dialog.open(PokemonItemComponent, {
         height: '400px',
         width: '600px',
