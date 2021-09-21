@@ -1,0 +1,8 @@
+<form class="example-form"
+  [formGroup]="searchForm"
+  *ngIf="searchForm">
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Search</mat-label>
+    <input matInput placeholder="Search" (keyup)="onSearchKeyDown($event)">
+  </mat-form-field>
+</form>

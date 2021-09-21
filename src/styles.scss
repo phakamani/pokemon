@@ -1,1 +1,9 @@
 @import '~@angular/material/prebuilt-themes/indigo-pink.css';
+@import './app/common/styles/variable';
+// default theme:
+body {
+  background-color : $light-grey;
+  mat-spinner {
+    margin: 0 auto;
+  }
+}

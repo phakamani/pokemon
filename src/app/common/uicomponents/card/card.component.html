@@ -1,20 +1,21 @@
-<div class="card">
-  <div class="item">
-    <div class="image"
-      style="background-image: url('{{data.imageUrl}}')"></div>
-    <div class="content">
-        <h3>{{data.title}}</h3>
-    </div>
-    <div class="actions">
-      <form-button  *ngFor="let buttonItem of data.buttons"
-        (customClick)="onCustomButtonClick($event, button)"
-        [data]="{
-          type: buttonItem.type,
-          text: buttonItem.text,
-          subType: buttonItem.subType,
-          name: buttonItem.name
-        }">
-      </form-button>
-    </div>
-  </div>
-</div>
+<mat-card class="example-card">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title>{{data.title}}</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="image" style="background-image: url('{{data.imageUrl}}')"></div>
+  </mat-card-content>
+
+  <mat-card-actions>
+    <form-button  *ngFor="let buttonItem of data.buttons"
+      (customClick)="onCustomButtonClick($event, button)"
+      [data]="{
+        type: buttonItem.type,
+        text: buttonItem.text,
+        subType: buttonItem.subType,
+        name: buttonItem.name
+      }">
+    </form-button>
+  </mat-card-actions>
+</mat-card>

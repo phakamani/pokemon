@@ -1,3 +1,4 @@
+import { PaginationFooterComponent } from './common/uicomponents/pagination-footer/pagination-footer.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
@@ -11,7 +12,17 @@ import { PokemonItemComponent } from './process/view-pokemon/pokemon-item/pokemo
 import { CardComponent } from './common/uicomponents/card/card.component';
 import { FormButtonComponent } from './common/uicomponents/form/form-button/form-button.component';
 import { DialogComponent } from './common/uicomponents/dialog/dialog.component';
+import { SearchComponent } from './common/uicomponents/search/search.component'
+
 import { MatDialogModule } from '@angular/material/dialog';
+import {MatButtonModule} from '@angular/material/button';
+import {MatCardModule} from '@angular/material/card';
+import {MatInputModule} from '@angular/material/input';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+
+import {FlexLayoutModule} from '@angular/flex-layout';
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -20,14 +31,24 @@ import { MatDialogModule } from '@angular/material/dialog';
     PokemonItemComponent,
     CardComponent,
     FormButtonComponent,
-    DialogComponent
+    DialogComponent,
+    PaginationFooterComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MatDialogModule
+    ReactiveFormsModule,
+
+    MatDialogModule,
+    MatButtonModule,
+    MatCardModule,
+    MatInputModule,
+    MatProgressSpinnerModule,
+
+    FlexLayoutModule
   ],
   providers: [
     HttpClient

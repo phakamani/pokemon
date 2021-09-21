@@ -15,7 +15,7 @@ export class PokemonService {
   ) { }
 
   getPokemonList(): Observable<any> {
-    const requestUrl = 'http://localhost:8080/api/pokemon';
+    const requestUrl = 'http://localhost:8080/api/';
     return this.http.get(requestUrl).pipe(
       map((res) => {
         return res;
@@ -26,23 +26,13 @@ export class PokemonService {
 
   getPokemon(name: string): Observable<Pokemon> {
 
-    const requestUrl = `http://localhost:8080/api/pokemon/${name}`;
+    const requestUrl = `http://localhost:8080/api/${name}`;
     return this.http.get(requestUrl).pipe(
       map((data) => {
-
-        // const height = Number(data['height'])/10;
-        // const weight = Number(data['weight'])/10;
-        // const numberOfBattles = data['game_indices'].length.toString();
-        // const pokemon = {
-        //   name: data['name'],
-        //   url: data['sprites']["front_default"],
-        //   type: data['types'][0].type.name,
-        //   height: `${height}m`,
-        //   weight: `${weight}kg`,
-        //   numberOfBattles,
-        // }
-
-        return data;
+        const pokemon: Pokemon = data;
+        pokemon.height = `${data['height']/10}m`;
+        pokemon.weight = `${data['weight']/10}kg`
+        return pokemon;
     }),
     catchError(this.handleError));
   }

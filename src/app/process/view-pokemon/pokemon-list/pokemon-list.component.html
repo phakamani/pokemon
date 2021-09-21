@@ -1,17 +1,53 @@
-<div *ngFor="let pokemonItem of pokemonList">
-  <card
-    (cardButtonClick)="onCardButtonClick($event)"
-    [data]= "{
-      imageUrl: pokemonItem.url,
-      title: pokemonItem.name,
-      buttons: [{
-        type: 'text',
-        subType: '',
-        text: pokemonItem.name,
-        name: pokemonItem.name
+<!-- <form>
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Search</mat-label>
+    <input type="search" matInput
+           placeholder="Search"/>
+  </mat-form-field>
+</form> -->
+<div #scrollPositionElement></div>
 
-      }]
-    }"></card>
+
+<search (search)="onSearch($event)"></search>
+
+
+<div *ngIf="showSearchLoader">
+  <mat-spinner></mat-spinner>
 </div>
+
+<div *ngIf="!pokemonSearchFound && !showSearchLoader">No result found</div>
+
+<div *ngIf="!showSearchLoader">
+  <div *ngFor="let pokemonItem of displayedPokemonList">
+    <card
+      (cardButtonClick)="onCardButtonClick($event)"
+      [data]= "{
+        imageUrl: pokemonItem.url,
+        title: pokemonItem.name,
+        buttons: [{
+          type: 'text',
+          subType: '',
+          text: pokemonItem.name,
+          name: pokemonItem.name
+
+        }]
+      }"></card>
+  </div>
+  <app-pagination-footer *ngIf="pokemonSearchFound"
+    (initializeDiplayedItems)="initializeDiplayedItems($event)"
+    (previousButtonClick)="onPreviousPageButtonClick($event)"
+    (nextButtonClick)="onNextPageButtonClick($event)"
+    [data]="{
+      items: pokemonList,
+      count: pokemonCount,
+      countIndex: pokemonCountIndex,
+      searching: searching
+    }">
+
+  </app-pagination-footer>
+
+</div>
+
+
 
 

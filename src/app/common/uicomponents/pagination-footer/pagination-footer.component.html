@@ -1,0 +1,23 @@
+<div fxLayout="row"
+  fxLayoutAlign="center"
+  fxLayoutGap="15px"
+  class="pagination-footer-container">
+  <form-button
+  *ngIf="data.countIndex !== 1" (click)="onPreviousPageButtonClick()"
+  [data]="{
+    type: 'button',
+    text: 'Previous',
+    subType: 'primary',
+    leftTextIcon: 'circle-left'
+  }"></form-button>
+
+  <form-button
+    *ngIf="data.items.length > data.count * data.countIndex" (click)="onNextPageButtonClick()"
+    [data]="{
+      type: 'button',
+      text: 'Next',
+      subType: 'primary',
+      rightTextIcon: 'circle-right'
+    }"></form-button>
+
+</div>
