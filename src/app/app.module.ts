@@ -19,6 +19,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import {MatInputModule} from '@angular/material/input';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatBadgeModule} from '@angular/material/badge';
 
 import {FlexLayoutModule} from '@angular/flex-layout';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -47,6 +48,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatCardModule,
     MatInputModule,
     MatProgressSpinnerModule,
+    MatBadgeModule,
 
     FlexLayoutModule
   ],

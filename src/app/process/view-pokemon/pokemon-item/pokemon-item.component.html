@@ -1,12 +1,8 @@
-<h2 mat-dialog-title>Install Angular</h2>
+<h2 mat-dialog-title>{{data.name}}</h2>
 <div mat-dialog-content class="mat-typography">
   <img src="{{data.url}}" alt="{{data.name}}"/>
   <div>
-    <div>name = {{data.name}}</div>
-    <div>type = {{data.type}}</div>
-    <div>height = {{data.height}}</div>
-    <div>weight = {{data.weight}}</div>
-    <div>number of battles = {{data.numberOfBattles}}</div>
+    <span>Type {{data.type}} | Height {{data.height}} | Weight {{data.weight}} | Number of battles {{data.numberOfBattles}}</span>
   </div>
 </div>
 <mat-dialog-actions align="end">

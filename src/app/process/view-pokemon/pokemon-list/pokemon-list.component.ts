@@ -49,8 +49,8 @@ export class PokemonListComponent implements OnInit {
       this.pokemon = data;
       console.log('==========data=======', data);
       this.dialog.open(PokemonItemComponent, {
-        height: '400px',
-        width: '600px',
+        height: '300px',
+        width: '360px',
         data
       });
 
