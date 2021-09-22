@@ -47,13 +47,11 @@ export class PokemonListComponent implements OnInit {
   getPokemon(name: string) {
     this.pokemonService.getPokemon(name).subscribe(data => {
       this.pokemon = data;
-      console.log('==========data=======', data);
       this.dialog.open(PokemonItemComponent, {
         height: '300px',
         width: '360px',
         data
       });
-
     })
   }
 
