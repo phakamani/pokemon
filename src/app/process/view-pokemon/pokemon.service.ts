@@ -3,6 +3,7 @@ import { Observable, throwError } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Pokemon } from 'src/app/model/Pokemon-model';
+import { environment } from 'src/environments/environment';
 
 
 @Injectable({
@@ -15,7 +16,7 @@ export class PokemonService {
   ) { }
 
   getPokemonList(): Observable<any> {
-    const requestUrl = 'http://localhost:8080/api/';
+    const requestUrl = `${environment.api}/api/`;
     return this.http.get(requestUrl).pipe(
       map((res) => {
         return res;
@@ -26,7 +27,7 @@ export class PokemonService {
 
   getPokemon(name: string): Observable<Pokemon> {
 
-    const requestUrl = `http://localhost:8080/api/${name}`;
+    const requestUrl = `${environment.api}/api/${name}`;
     return this.http.get(requestUrl).pipe(
       map((data) => {
         const pokemon: Pokemon = data;
